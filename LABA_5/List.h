@@ -3,18 +3,21 @@
 struct Node                           
 {
 	int l,r;                            
-	Node* Next, * Prev;                 
+	Node* Next;                 
 };
 
 class List									
 {
-	Node* Head, * Tail;                
+	Node* Head, * Tail;  
+	void split(Node* source, Node** frontRef, Node** backRef);
 public:
-	List() :Head(NULL), Tail(NULL) {};  
-	~List();                          
+	List() :Head(NULL), Tail(NULL) {}; 
+	List(Node* H) : Head(H), Tail(NULL) {};
+	~List();                    
+	Node* getHead() { return Head; };
+	void merge_sort(Node **headRef);
 	void show();                       
 	void add(int, int);     
-	void sort();
 	int colored();
 };
 
